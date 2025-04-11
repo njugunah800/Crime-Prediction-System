@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    font-family: 'Lora', serif;
+    background-color: #9ad53a;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background: #2c3e50;
+    color: #a6db12;
+    padding: 20px 0;
+}
+/* Styling the logout button */
+.logout-btn {
+    background-color: #f44336; /* Red color */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none; /* Removes underline from the link */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect */
+.logout-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    cursor: pointer;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.title {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.tagline {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* Form Section */
+.section1 {
+    background: #12cff5;
+    padding: 30px;
+    margin: 20px auto;
+    width: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.table1 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.label {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.sel select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.button {
+    margin-top: 20px;
+}
+
+.btn {
+    background: #5b05e5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #d3030a;
+}
+
+/* About Section */
+#about {
+    font-size: 1.8rem;
+    margin-top: 30px;
+}
+
+#introduction {
+    width: 70%;
+    margin: auto;
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+#introduction a {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: rgb(8, 210, 41);
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer img {
+    transition: transform 0.3s;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}

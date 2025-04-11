@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Crime Prediction Result</h1>
+        <p style="text-align: right; margin: 10px;">
+            <!-- Logout Link -->
+        <a href="/logout" class="logout-btn">Logout</a>
+        </p>   
+    </header>
+
+    <section>
+        <h2>Selected Details</h2>
+        <p><strong>City:</strong> {{ city }}</p>
+        <p><strong>Crime Type:</strong> {{ crime }}</p>
+        <h2>Prediction</h2>
+        <p><strong>Predicted Crime Rate:</strong> <span class="highlight">{{ prediction }}</span></p>
+    </section>
+
+    <footer>
+        <a href="{{ url_for('index') }}">Go Back</a>
+
+    </footer>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .highlight {
+            font-size: 22px;
+            font-weight: bold;
+            color: red;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+ <footer>
+    <div class="footer">
+        <div id="developer">
+            <h3 >Developed By: &emsp; Moses, Mark & Veronica</h3>
+        </div>
+        <div id="linkedin">
+            <a href="https://www.linkedin.com/in/moses-njuguna-068286281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                <img src="static/images/linkedin.png" alt="linkedIn" width="35" >                
+            </a>  
+        </div>
+        <div id="github">
+            <a href="https://github.com/njugunah800" target="_blank">
+                <img src="static/images/github.png" alt="GitHub" width="35">
+            </a>
+        </div>
+    </div>       
+</footer>
+
+</body>
+</html>

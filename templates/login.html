@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Crime Prediction System</title>
+    <link rel="icon" href="static/images/login.png" type="image/png">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-box h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .form-box label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .form-box input[type="text"],
+        .form-box input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: border 0.3s ease;
+        }
+
+        .form-box input:focus {
+            border-color: #6a82fb;
+            outline: none;
+        }
+
+        .form-box button {
+            background: #6a82fb;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .form-box button:hover {
+            background: #5a72e8;
+        }
+
+        .form-box p {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .form-box a {
+            color: #6a82fb;
+            text-decoration: none;
+        }
+
+        .form-box a:hover {
+            text-decoration: underline;
+        }
+
+        .error-popup {
+          background-color: #ff4d4f;
+          color: white;
+          padding: 15px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+         font-size: 14px;
+         animation: slideDown 0.4s ease;
+        }
+
+        .close-btn {
+           position: absolute;
+           top: 8px;
+           right: 12px;
+           font-size: 18px;
+           font-weight: bold;
+           cursor: pointer;
+         }
+
+         @keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 10px;
+            background-color: gray;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Style for the copyright symbol */
+        .circle {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            color: blue;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+        {% if error %}
+        <div class="error-popup" id="errorPopup">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <h1>Login</h1>
+        <form method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+        <p><a href="{{ url_for('forgot_password') }}">Forgot Password?</a></p>
+    </div>
+
+    <script>
+        function closePopup() {
+          const popup = document.getElementById("errorPopup");
+          if (popup) popup.style.display = "none";
+        }
+      </script>
+      
+      <footer>
+        <p><span class="circle">©</span> All rights reserved Crime Prediction System 2025</p>
+    </footer>
+
+</body>
+</html>

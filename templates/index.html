@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Rate Prediction</title>
+    <link rel="icon" href="static/images/favicon.png" type="image/png">
+    
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="static/main.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class = "title">Crime Rate Predictor</h1>
+        <h2 class = "tagline">Motto: Come all let's Curb Crime</h2>
+        <p style="text-align: right; margin: 10px;">
+            <!-- Logout Link -->
+        <a href="/logout" class="logout-btn">Logout</a>
+        </p>        
+    </header>
+
+    <section class="section1">
+        <form action="/predict" method="POST">
+            <table class="table1">
+                <tr>
+                    <td class="label">
+                        <label>Select City Name</label>
+                    </td>
+                    <td class="sel">
+                        <select id="location-dropdown" name="city">
+                            <option value="0">--select location--</option>
+                            <option value="1">Jomoko</option>
+                            <option value="2">Witeithie</option>
+                            <option value="3">Thika</option>
+                            <option value="4">Ruiru</option>
+                            <option value="5">Juja</option>
+                            <option value="6">Kimbo</option>
+                            <option value="7">Kiambu Town</option>
+                            <option value="8">Banana</option>
+                            <option value="9">Ruaka</option>
+                            <option value="10">Limuru</option>
+                            <option value="11">Ngoigwa</option>
+                            <option value="12">Githurai</option>
+                            <option value="13">Gatundu</option>
+                            <option value="14">Kikuyu</option>
+                            <option value="15">Githunguri</option>
+                            <option value="16">Ndumberi</option>
+                            <option value="17">Kiambaa</option>
+                            <option value="18">Kabete</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        <label>Select Crime Type</label>
+                    </td>
+                    <td class="sel">
+                        <select id="crime-type-dropdown" name="crime">
+                            <option value="6">--select crime type--</option>
+                            <option value="6">All</option>
+                            <option value="5">Murder</option>
+                            <option value="4">Kidnapping</option>
+                            <option value="3">Cyber_Crimes</option>
+                            <option value="2">Sexual_Crimes</option>
+                            <option value="1">Theft</option>
+                            <option value="0">Assault</option>
+                       
+                        </select>
+                    </td>                  
+                </tr>
+
+            </table>
+
+            <div class="button">
+                <input type="submit" class="btn" value="PREDICT">
+            </div>
+                        
+        </form>          
+    </section>    
+
+    <section>
+        <h2 id="about">About the Application</h2>
+
+        <p id="introduction">
+            Crime is a growing concern in many communities, and staying informed 
+            about crime trends can help individuals and authorities take proactive
+             measures to improve safety.
+             Our Crime Prediction System is designed to analyze past crime data
+            and provide insights into crime levels in different locations. 
+             Using machine learning, the system predicts whether a 
+             selected area has a high, moderate, or low crime rate, 
+             helping users make informed decisions about security and risk assessment.
+            
+            <br> <br>
+            This system is built on real-world crime data collected from 2000 to 2024,
+             allowing it to identify trends and patterns in various crime categories. 
+             Users can select a specific location and either analyze all crimes in that 
+             area or focus on a particular crime type. By processing this data,
+              the model delivers accurate predictions, making it a valuable tool
+               for law enforcement, businesses, and the general public.
+                Whether you're a policymaker looking to allocate security resources 
+                effectively or a business owner assessing risk before setting up in a new area,
+                 this tool provides essential crime insights at your fingertips. 
+            <br><br>
+            Beyond just numbers and statistics, this system aims to contribute 
+            to a safer society by making crime data more accessible and understandable. 
+            The user-friendly interface ensures that anyone—from concerned citizens to 
+            government officials—can easily interact with the system and use the insights
+            to enhance security strategies. <b>By leveraging technology for crime analysis,
+            we hope to create awareness and empower communities to take action against
+            crime before it happens </b>
+          The prediction model achieves a testing accuracy of 95.76% in its crime rate estimates. 
+            <br><br>
+
+            <a href="https://docs.google.com/document/d/1j1bQBjXbmKLKbzlpFPVXIiWNbfTs99pc/edit?usp=drivesdk&ouid=106588132300774986749&rtpof=true&sd=true">
+                Click here to access the project Documentation.
+            </a>
+        </p>
+    </section>
+
+    <div id="result" style="text-align: center; font-size: 20px; margin-top: 20px;"></div>
+
+    <footer>
+        <div class="footer">
+            <div id="developer">
+                <h3 >Developed By: &emsp; Moses, Mark & Veronica</h3>
+            </div>
+            <div id="linkedin">
+                <a href="https://www.linkedin.com/in/moses-njuguna-068286281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                    <img src="static/images/linkedin.png" alt="linkedIn" width="35" >                
+                </a>  
+            </div>
+            <div id="github">
+                <a href="https://github.com/njugunah800" target="_blank">
+                    <img src="static/images/github.png" alt="GitHub" width="35">
+                </a>
+
+            </div>
+        </div>      
+        <p><span class="circle">©</span> All rights reserved Crime Prediction System 2025</p> 
+    </footer>
+</body>
+</html>

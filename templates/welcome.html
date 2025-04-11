@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome| Crime Prediction System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+  <link rel="icon" href="static/images/welcome.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .center-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00c6ff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #0072ff;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    a {
+      color: #00c6ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+   
+/* WhatsApp Button Image Style */
+.whatsapp-btn {
+    width: 60px;  /* Adjust the width of the button */
+    height: 60px; /* Ensure height is proportional */
+    display: block;
+    margin: 20px auto;  /* Centers the button */
+    text-align: center;
+}
+
+.whatsapp-btn:hover {
+    opacity: 0.8; /* Slight effect on hover */
+}
+
+/* Container style for text and button */
+.welcome-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+}
+
+.welcome-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.welcome-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 10px;
+            background-color: grey;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Style for the copyright symbol */
+        .circle {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            color: blue;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+
+  </style>
+</head>
+<body>
+  <div class="center-box">
+    <h1>Welcome to the Crime Prediction System</h1>
+    <a href="/login" class="btn">Login</a>
+    <p>Don't have an account? <a href="/register">Register</a></p>
+    <p><a href="{{ url_for('forgot_password') }}">Forgot Password?</a></p>
+
+
+    <p>If you need help creating an account, please click the button below to chat with us on WhatsApp:</p>
+        
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+254113229108?text=Hello%20Moses%2C%20How%20can%20I%20go%20about%20this%3F" target="_blank">
+        <img src="{{ url_for('static', filename='images/whatsapplogo.png') }}" alt="Chat with us on WhatsApp" class="whatsapp-btn">
+    </a>
+      
+  </div>
+  <footer>
+    <p><span class="circle">©</span> All rights reserved Crime Prediction System 2025</p>
+</footer>
+</body>
+</html>

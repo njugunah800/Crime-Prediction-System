@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Crime Prediction System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+  <link rel="icon" href="static/images/register.png" type="image/png">
+
+  <script>
+    function validatePassword() {
+        var password = document.getElementById("password").value;
+        var errorMessage = "";
+        
+        // Check password length
+        if (password.length < 8) {
+            errorMessage += "Password must be at least 8 characters long.\n";
+        }
+
+        // Check for at least one uppercase letter
+        if (!/[A-Z]/.test(password)) {
+            errorMessage += "Password must contain at least one uppercase letter.\n";
+        }
+
+        // Check for at least one lowercase letter
+        if (!/[a-z]/.test(password)) {
+            errorMessage += "Password must contain at least one lowercase letter.\n";
+        }
+
+        // Check for at least one number
+        if (!/[0-9]/.test(password)) {
+            errorMessage += "Password must contain at least one number.\n";
+        }
+
+        // Check for at least one special character
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            errorMessage += "Password must contain at least one special character.\n";
+        }
+
+        if (errorMessage != "") {
+            alert(errorMessage);  // Display the prompt with missing requirements
+            return false;  // Prevent form submission if validation fails
+        }
+        return true;  // Allow form submission if validation is successful
+    }
+</script>
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-box h2 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .form-box input[type="text"],
+    .form-box input[type="password"],
+    .form-box input[type="email"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+     border-radius: 10px;
+     transition: border 0.3s ease;
+    }
+
+
+    .form-box input[type="text"]:focus,
+    .form-box input[type="password"]:focus {
+      border: 1px solid #6a82fb;
+      outline: none;
+    }
+
+    .form-box .btn {
+      background: #6a82fb;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+
+    .form-box .btn:hover {
+      background: #5a72e8;
+    }
+
+    .form-box p {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .form-box a {
+      color: #6a82fb;
+      text-decoration: none;
+    }
+
+    .form-box a:hover {
+      text-decoration: underline;
+    }
+
+    .flash-message.success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+    font-size: 16px;
+    animation: slideDown 0.4s ease;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 10px;
+            background-color: gray;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Style for the copyright symbol */
+        .circle {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            color: blue;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Create Account</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash-message {{ category }}">
+        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% if show_redirect %}
+  <script>
+    setTimeout(function() {
+      window.location.href = "{{ url_for('login') }}";
+    }, 4000); // Wait 4 seconds
+  </script>
+{% endif %}
+      <form method="POST" action="/register" onsubmit="return validatePassword()">
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="email" name="email" placeholder="Email" required><br> 
+      <input type="password" id="password" name="password" placeholder="Password" required><br>
+      <input type="submit" value="Register" class="btn">
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+  </div>
+  <footer>
+    <p><span class="circle">©</span> All rights reserved Crime Prediction System 2025</p>
+</footer>
+
+</body>
+</html>
